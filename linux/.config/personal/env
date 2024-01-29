@@ -26,10 +26,11 @@ commitDotFiles() {
         pushd $submodule
         git add .
         git commit -m "Update submodule"
+        git push origin master
         popd
     done
 
-    git push origin master --recurse-submodules=on-demand
+    git push origin master
     popd
 }
 
