@@ -15,7 +15,7 @@ addToPathFront() {
 }
 
 commitDotFiles() {
-    pushd $dotfiles
+    pushd $DOTFILES
     git add .
     git commit -m "automagic messaging from me in the past."
     git push origin master
