@@ -1,5 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-addToPathFront $DENO_INSTALL
 addToPath $HOME/.cargo/bin
 addToPath $HOME/.rustup

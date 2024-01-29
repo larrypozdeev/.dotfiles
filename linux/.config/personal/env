@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export STOW_FOLDERS="bin,nvim,tmux,uwuntu,netflix,personal,i3,zsh,xkb"
+export STOW_FOLDERS="bin,nvim,tmux,linux,personal,i3,zsh"
 
 addToPath() {
     if [[ "$PATH" != *"$1"* ]]; then
@@ -15,12 +15,8 @@ addToPathFront() {
 }
 
 commitDotFiles() {
-    pushd $DOTFILES
+    pushd $dotfiles
     pushd personal
-    git add .
-    git commit -m "automagic messaging from me in the past."
-    git push origin master
-    popd
     git add .
     git commit -m "automagic messaging from me in the past."
     git push origin master
