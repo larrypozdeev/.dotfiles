@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-source ./env
+source $DOTFILES/linux/.config/personal/env
 addToPath $HOME/.cargo/bin
 addToPath $HOME/.rustup
