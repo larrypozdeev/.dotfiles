@@ -14,10 +14,22 @@ addToPathFront() {
     fi
 }
 
+GIT_SUBMODULES=$(grep path $DOTFILES/.gitmodules | sed 's/.*= //')
+
 commitDotFiles() {
     pushd $DOTFILES
     git add .
     git commit -m "automagic messaging from me in the past."
-    git push origin master
+
+    # Iterate over each submodule path
+    for submodule in $(grep path .gitmodules | sed 's/.*= //'); do
+        pushd $submodule
+        git add .
+        git commit -m "Update submodule"
+        popd
+    done
+
+    git push origin master --recurse-submodules=on-demand
     popd
 }
+
