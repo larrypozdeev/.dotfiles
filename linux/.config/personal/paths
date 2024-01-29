@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-
+source ./env
 addToPath $HOME/.cargo/bin
 addToPath $HOME/.rustup
