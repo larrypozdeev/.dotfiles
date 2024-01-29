@@ -1,0 +1,6 @@
+[submodule "nvim/.config/nvim"]
+	path = nvim/.config/nvim
+	url = git@github.com:larrypozdeev/nvim.git
+[submodule "personal"]
+	path = personal
+	url = git@github.com:larrypozdeev/personal.git
