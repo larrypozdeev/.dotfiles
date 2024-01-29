@@ -1,0 +1,21 @@
+export XDG_CONFIG_HOME=$HOME/.config
+
+export RSPOTIFY_CLIENT_ID="cfb69845fa5548cdb603eeacd7ee2e3a"
+export RSPOTIFY_CLIENT_SECRET="51155e6cc41b4db2b28f89d3475680be"
+
+export PATH=/opt/lampp/bin/:$PATH
+
+VIM="nvim"
+alias vim=nvim
+export TERM=kitty
+PERSONAL=$XDG_CONFIG_HOME/personal
+source $PERSONAL/env
+for i in `find -L $PERSONAL`; do
+     source $i
+done
+# bindkey -s ^f "tmux-sessionizer"
+export GIT_EDITOR=$VIM
+
+export PATH=$HOME/.local/scripts:$PATH
+bindkey -s ^f "tmux-sessionizer\n"
+

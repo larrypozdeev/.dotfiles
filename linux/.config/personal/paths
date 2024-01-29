@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+addToPathFront $DENO_INSTALL
+addToPath $HOME/.cargo/bin
+addToPath $HOME/.rustup

@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+export STOW_FOLDERS="bin,nvim,tmux,uwuntu,netflix,personal,i3,zsh,xkb"
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+commitDotFiles() {
+    pushd $DOTFILES
+    pushd personal
+    git add .
+    git commit -m "automagic messaging from me in the past."
+    git push origin master
+    popd
+    git add .
+    git commit -m "automagic messaging from me in the past."
+    git push origin master
+    popd
+}
