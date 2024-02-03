@@ -16,11 +16,10 @@ set $mod Mod4
 font pango:DejaVu Sans Mono 11
 
 input type:keyboard {
-
     xkb_layout us(colemak_dh)
-    xkb_options grp:rctrl_toggle
-
 }
+
+bindsym $mod+w exec firefox
 
 
 # GET DEM BORDERS OUT OF HEREc:w#

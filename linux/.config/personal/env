@@ -1,6 +1,23 @@
 #!/usr/bin/env bash
 
 export STOW_FOLDERS="bin,nvim,tmux,linux,personal,i3,zsh"
+# set colemak_dh as the default keyboard layou
+
+arst() {
+    # check if wayland is running
+    if [ -n "$WAYLAND_DISPLAY" ]; then
+        echo "Wayland is running"
+    else
+        setxkbmap -layout us -variant qwerty
+    fi
+}
+
+asdf() {
+    if [ -n "$WAYLAND_DISPLAY" ]; then
+    else
+        setxkbmap -layout us -variant colemak_dh
+    fi
+}
 
 addToPath() {
     if [[ "$PATH" != *"$1"* ]]; then
