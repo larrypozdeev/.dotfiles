@@ -1,0 +1,6 @@
+#!/bin/sh
+brightness=$(brightnessctl g )
+full_brightness=$(brightnessctl max )
+brightness_percentage=$(expr $brightness \* 100 / $full_brightness)
+killall dunst
+notify-send -i /usr/share/icons/Papirus-Dark/48x48/status/notification-display-brightness.svg "Brightness " " $brightness_percentage% "

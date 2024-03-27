@@ -1,0 +1,100 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 16,
+  "spacing": 0,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "modules-left": ["hyprland/workspaces", "hyprland/window","hyprland/now-playing"],
+  "modules-right": ["cpu", "memory", "network", "custom/sep", "pulseaudio",
+                    "backlight/slider", "backlight", "battery", "clock",
+                    "tray", "custom/power"],
+  "tray": {
+    "show-passive-items": true,
+    "icon-size":14,
+    "spacing": 10
+  },
+
+  "battery": {
+    "interval": 1,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "min-length": 7,
+    "max-length": 20,
+    "format": "{icon}{capacity}%",
+    "format-warning": "{icon}{capacity}%",
+    "format-critical": "{icon}{capacity}%",
+    "format-charging": "<span foreground='#26ff55'> {capacity} %</span>",
+    "format-plugged": "<span foreground='#26ff55'>  {capacity}%</span>",
+    "format-alt": "{icon} {time}",
+    "format-full": "<span foreground='#26ff55'> {capacity} %</span>",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  "clock": {
+    "format": "<span color='#6bfffd'> </span>{:%I:%M %p}",
+    "format-alt": "<span color='#ff9854'> </span>{:%a %b %d}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "cpu": {
+    "format": "CPU:  {usage}%",
+    "tooltip": true,
+    "interval": 1
+  },
+
+  "memory": {
+    "interval": 4,
+    "exec": "$(free -h)",
+    "on-click": "notify-send \"🧠 Memory hogs\" \"$(ps axch -o cmd:16,%mem --sort=-%mem | head)\"",
+    "on-click-right": "kitty --class floating -e htop",
+    "format": "  {used:0.2f}G"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [" ", " ", " "]
+    },
+    "on-click": "pavucontrol"
+  },
+  "network": {
+        "on-click-right": "nmtui",
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr}  ",
+        "tooltip-format": "{ifname} via {gwaddr}  ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "Disconnected ⚠ ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+  },
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false
+  },
+  "backlight/slider": {
+    "min": 1,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight"
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+	"format-icons": ["", ""],
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout -p layer-shell &",
+    "format": " "
+  }
+}
