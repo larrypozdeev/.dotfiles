@@ -72,6 +72,7 @@ window#waybar.hidden {
   border-radius: 20px;
   background-color: #1e1e1e;
 }
+
 #custom-logo {
   padding: 0px 10px;
 }
@@ -118,25 +119,25 @@ window#waybar.empty #window {
 }
 
 #backlight-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
 }
 
 #backlight-slider trough {
-    min-height: 10px;
-    min-width: 80px;
-    border-radius: 5px;
-    background-color: black;
+  min-height: 10px;
+  min-width: 80px;
+  border-radius: 5px;
+  background-color: black;
 }
 
 #backlight-slider highlight {
-    min-width: 10px;
-    border-radius: 5px;
-    background-color: red;
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: red;
 }
 
 #pulseaudio.muted {
@@ -144,8 +145,8 @@ window#waybar.empty #window {
 }
 
 #custom-power {
-    color: #fff;
-    padding: 0 10px;
+  color: #fff;
+  padding: 0 10px;
 }
 
 tooltip {

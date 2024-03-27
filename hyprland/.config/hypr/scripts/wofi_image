@@ -1,0 +1,31 @@
+#!/bin/bash
+
+IMAGE_DIR="/path/to/images"
+THUMB_DIR="/path/to/thumbnails"
+
+# Ensure the thumbnail directory exists
+mkdir -p "$THUMB_DIR"
+
+# Generate thumbnails
+for image in "$IMAGE_DIR"/*; do
+    thumb="$THUMB_DIR/$(basename "$image").png"
+    if [ ! -f "$thumb" ]; then
+        convert "$image" -resize 100x100 "$thumb"
+    fi
+done
+
+# Generate input for wofi
+input=""
+for thumb in "$THUMB_DIR"/*; do
+    image_name=$(basename "$thumb" .png)
+    input+="$image_name\n"
+done
+
+# Show wofi menu
+selected=$(echo -e "$input" | wofi --show=dmenu --dmenu)
+
+# Open the selected image if any
+if [ -n "$selected" ]; then
+    xdg-open "$IMAGE_DIR/$selected"
+fi
+

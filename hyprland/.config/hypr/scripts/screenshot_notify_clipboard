@@ -1,0 +1,19 @@
+#!/bin/sh
+# Kill any existing dunst instances
+killall dunst
+
+# Use wl-paste to save the screenshot from the clipboard to a temporary file
+TEMP_FILE=$(mktemp --suffix=.png)
+wl-paste --type image/png > "$TEMP_FILE"
+
+# Check if the file was created successfully and is not empty
+if [ -s "$TEMP_FILE" ]; then
+    # Use notify-send with an app icon to show the notification
+    # Since notify-send might not support embedding images directly in the notification,
+    # we use the icon parameter as a workaround to display the image.
+    notify-send -i "$TEMP_FILE" "Screenshot has been taken" "Preview saved to clipboard"
+    # Optionally, clean up the temp file after a delay to allow notification daemon to display it
+    (sleep 10; rm -f "$TEMP_FILE") &
+else
+    notify-send "Screenshot has been taken" "Preview not available"
+fi

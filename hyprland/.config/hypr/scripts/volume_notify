@@ -1,4 +1,4 @@
 #!/bin/sh
 # killall dunst
 dunstctl close-all
-notify-send -i /usr/share/icons/Papirus-Dark/48x48/status/notification-audio-volume-high.svg " Volume " " $(pamixer --get-volume)% "
+notify-send -i /usr/share/icons/papirus-dark/48x48/status/notification-audio-volume-high.svg " volume " " $(pamixer --get-volume)% "

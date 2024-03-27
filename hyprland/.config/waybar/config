@@ -9,7 +9,7 @@
   "fixed-center": true,
   "modules-left": ["hyprland/workspaces", "hyprland/window","hyprland/now-playing"],
   "modules-right": ["cpu", "memory", "network", "custom/sep", "pulseaudio",
-                    "backlight/slider", "backlight", "battery", "clock",
+                    "backlight", "battery", "clock",
                     "tray", "custom/power"],
   "tray": {
     "show-passive-items": true,
