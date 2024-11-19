@@ -8,7 +8,7 @@ export LS_COLORS
 source ~/.zsh_profile
 
 RANGER_LOAD_DEFAULT_RC=false
-
+export EDITOR="nvim"
 
 HISTFILE=~/.cache/zsh/history
 HISTSIZE=50000
@@ -75,3 +75,14 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 neofetch | lolcat
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/larry/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/larry/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+export PATH=$PATH:/usr/bin/go
+export PATH=$PATH:$HOME/go/bin
