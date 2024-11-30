@@ -1,19 +1,48 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 16,
-  "spacing": 0,
+  "height": 35,
+  "spacing": 1,
   "exclusive": true,
   "gtk-layer-shell": true,
   "passthrough": false,
   "fixed-center": true,
   "modules-left": ["hyprland/workspaces", "hyprland/window","hyprland/now-playing"],
-  "modules-right": ["cpu", "memory", "network", "custom/sep", "pulseaudio",
+  "modules-right": ["cpu", "temperature#cpu","custom/sep",  "custom/gpu-usage", "temperature#gpu", "custom/sep", "memory", "network", 
+                    "custom/sep", "pulseaudio",
                     "backlight", "battery", "clock",
                     "tray", "custom/power"],
+
+
+  "temperature#cpu": {
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "critical-threshold": 85,
+    "format-critical": "{temperatureC}°C ",
+    "format": "{temperatureC}°C ",
+    "interval": 1,
+    "tooltip": false
+  },
+
+  "temperature#gpu": {
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input", 
+    "critical-threshold": 80,
+    "format-critical": "{temperatureC}°C ",
+    "format": "{temperatureC}°C ",
+    "interval": 1,
+    "tooltip": false
+  },
+
+  "custom/gpu-usage": {
+    "exec": "cat /sys/class/hwmon/hwmon2/device/gpu_busy_percent",
+    "format": "GPU: {}%",
+    "return-type": "",
+    "interval": 1,
+    "tooltip": false
+  },
+
   "tray": {
     "show-passive-items": true,
-    "icon-size":14,
+    "icon-size":20,
     "spacing": 10
   },
 
@@ -51,7 +80,7 @@
     "interval": 4,
     "exec": "$(free -h)",
     "on-click": "notify-send \"🧠 Memory hogs\" \"$(ps axch -o cmd:16,%mem --sort=-%mem | head)\"",
-    "on-click-right": "kitty --class floating -e htop",
+    "on-click-right": "alacritty --class floating -e htop",
     "format": "  {used:0.2f}G"
   },
 
@@ -73,10 +102,12 @@
         "on-click-right": "nmtui",
         "format-wifi": "{essid} ({signalStrength}%)  ",
         "format-ethernet": "{ipaddr}/{cidr}  ",
-        "tooltip-format": "{ifname} via {gwaddr}  ",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}\nGateway: {gwaddr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
         "format-linked": "{ifname} (No IP)  ",
         "format-disconnected": "Disconnected ⚠ ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}, Up: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "interval": 1,
+        "tooltip": true
   },
   "custom/sep": {
     "format": "|",

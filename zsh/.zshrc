@@ -83,6 +83,9 @@ neofetch | lolcat
 
 
 # Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 export PATH=$PATH:/usr/bin/go
 export PATH=$PATH:$HOME/go/bin
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/share/nvm/nvm.sh" ] && \. "/usr/share/nvm/nvm.sh"
+[ -s "/usr/share/nvm/etc/bash_completion" ] && \. "/usr/share/nvm/etc/bash_completion"

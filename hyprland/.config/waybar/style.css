@@ -65,6 +65,8 @@ window#waybar.hidden {
 #memory,
 #network,
 #backlight,
+#temperature,
+#custom-gpu-usage,
 #window {
   padding: 0px 8px;
   margin: 6px 3px;
@@ -94,7 +96,7 @@ window#waybar.empty #window {
   background-color: transparent;
 }
 
-#cpu {
+#cpu, #custom-gpu-usage {
   color: #94e2d5;
 }
 

@@ -1,11 +1,10 @@
 #!/usr/bin/env zsh
-if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="bin,nvim,i3,personal,tmux,kitty,linux,zsh,hyprland"
-fi
+STOW_FOLDERS="bin,nvim,i3,personal,tmux,kitty,linux,zsh,hyprland,swaync,ranger,rofi"
 
 if [[ -z $DOTFILES ]]; then
     DOTFILES=$HOME/.dotfiles
 fi
 
+#STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/clean-env
 STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/install
 

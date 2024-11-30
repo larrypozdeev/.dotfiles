@@ -10,11 +10,10 @@ for i in `find -L $PERSONAL`; do
 done
 
 alias vim=nvim
-export TERM=kitty
-bindkey -s ^f "tmux-sessionizer"
+export TERM=alacritty
 export GIT_EDITOR=$VIM
 
 addToPathFront $HOME/.local/scripts
 
-bindkey -s ^f "tmux-sessionizer\n"
+#bindkey -s ^f "tmux-sessionizer\n"
 
